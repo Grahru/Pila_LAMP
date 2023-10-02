@@ -9,3 +9,9 @@ echo "Esto es una prueba"
 
 #Instalar apache
 apt install apache2 -y
+
+#systemctl start apache2
+#systemctl stop apache2
+#systemctl restart apache2
+#systemctl reload apache2
+#systemctl status apache2
