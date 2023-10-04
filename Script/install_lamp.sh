@@ -8,7 +8,7 @@ echo "Esto es una prueba"
 #apt upgrade -y
 
 #Instalar apache
-apt install apache2 -y
+#apt install apache2 -y
 
 #systemctl start apache2
 #systemctl stop apache2
