@@ -30,3 +30,4 @@ systemctl restart apache2
 cp ../php/index.php /var/www/html
 #Modificar  propietario de /var/www/html al de apache
 chown -R www-data:www-data /var/www/html
+
