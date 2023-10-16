@@ -24,3 +24,4 @@ sudo apt install phpmyadmin php-mbstring php-zip php-gd php-json php-curl -y
 #Creamos usuario
 mysql -u root <<<"CREATE USER '$APP_USER'@'%' IDENTIFIED BY '$APP_PASSWORD';"
 mysql -u root <<<"GRANT ALL PRIVILEGES ON *.* TO '$APP_USER'@'%';"
+sudo apt install goaccess -y
