@@ -8,41 +8,64 @@ LAMP es el acrónimo usado para describir un sistema de infraestructura de Inter
 
 Gracias a aws tenemos una maquina ubuntu en la que trabajar por lo que la parte de linux ya esta cubierta. Por eso estaremos trabajando en consola de linux.
 
-## Instalacion apache2
-Siempre que vayamos a instalar algo
-´´´
+## Instalacion Aplicaciones
+Siempre que vayamos a instalar algo tenemos que actualizar los paquetes
+
+### Actualizamos los paquetes
+```
 apt update
-#Actualizar paquetes
-´´´
+``` 
+
+### Actualizamos aplicaciones
+```
 apt upgrade -y
+```
 
-#Instalar apache
-###
+## Instalar Apache
+Comando de instalacion Apache `-y` para que no te pida confirmacion.
+```
 apt install apache2 -y
+```
 
-###
-systemctl start apache2
-###
-systemctl stop apache2
-###
-systemctl restart apache2
-###
-systemctl reload apache2
-###
-systemctl status apache2
 
-#Instalar MySQL
-sudo apt install mysql-server -y
+## Instalar MySQL 
+Comando de instalacion MySQL `-y` para que no te pida confirmacion. 
+```
+apt install mysql-server -y
+```
 
-#Instalar php
-sudo apt install php libapache2-mod-php php-mysql -y
+## Instalar PhP 
+Comando de instalacion de php y los modulos necesarios para conectarlo con Apache y MySQL, el `-y` para que no te pida confirmacion.  
+```
+apt install php libapache2-mod-php php-mysql -y
+```
 
-#Copiar archivo de conf
+## Copiar archivo de conf 
+Con esto conseguimos que Apache tenga la configuracion que tenemos en el repositorio.  
+```
 cp ../conf/000-default.conf /etc/apache2/sites-available
+```
+En la con figuracion tenemos varias cosas interesantes `ServerSignature` y `ServerTokens` sirve para que no salga la version de Apache ni en la cabezera ni al final de la practica.`DirectoryIndex` elegimos el orden en el que Apache va a elegir los index.
+```
+ServerSignature off
+ServerTokens Prod
 
-systemctl restart apache2
-#Copiar index
+<VirtualHost *:80>
+    #ServerName www.example.com
+    DocumentRoot /var/www/html
+    DirectoryIndex index.php index.html
+    
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+  </VirtualHost>
+  ```
+## Copiar index
+Nuestro index.php pasa a estar en la carpeta donde apache mira su html.
+```
 cp ../php/index.php /var/www/html
-#Modificar  propietario de /var/www/html al de apache
+```  
+## Modificar  propietario de /var/www/html al de apache
+Este comando es necesario para que apache funcione correctamente. `www-data` es el usuario de apache y le damos el propietario de la carpeta donde estan nuestros html.
+```
 chown -R www-data:www-data /var/www/html
-
+```
