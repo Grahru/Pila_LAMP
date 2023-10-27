@@ -12,16 +12,23 @@ Gracias a aws tenemos una maquina ubuntu en la que trabajar por lo que la parte 
 Siempre que vayamos a instalar algo
 apt update
 #Actualizar paquetes
-#apt upgrade -y
+###
+apt upgrade -y
 
 #Instalar apache
+###
 apt install apache2 -y
 
-#systemctl start apache2
-#systemctl stop apache2
-#systemctl restart apache2
-#systemctl reload apache2
-#systemctl status apache2
+###
+systemctl start apache2
+###
+systemctl stop apache2
+###
+systemctl restart apache2
+###
+systemctl reload apache2
+###
+systemctl status apache2
 
 #Instalar MySQL
 sudo apt install mysql-server -y
