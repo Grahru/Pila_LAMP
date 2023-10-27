@@ -10,9 +10,10 @@ Gracias a aws tenemos una maquina ubuntu en la que trabajar por lo que la parte 
 
 ## Instalacion apache2
 Siempre que vayamos a instalar algo
+´´´
 apt update
 #Actualizar paquetes
-###
+´´´
 apt upgrade -y
 
 #Instalar apache
