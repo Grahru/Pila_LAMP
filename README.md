@@ -69,3 +69,4 @@ Este comando es necesario para que apache funcione correctamente. `www-data` es 
 ```
 chown -R www-data:www-data /var/www/html
 ```
+![](images/1.png)
