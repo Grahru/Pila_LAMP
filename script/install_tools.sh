@@ -4,11 +4,7 @@ set -x
 
 #Declaramos Variables
 #----------------------------------------------------------
-PHPMYADMIN_APP_PASSWORD=4393
-APP_USER=agr
-APP_PASSWORD=4393
-STATS_USER=agr
-STATS_PASSWORD=4393
+source .env
 #----------------------------------------------------------
 #Actualizar repo
 apt update
@@ -84,7 +80,7 @@ systemctl restart apache2
  
 #------------------------------------------
 #Copiamos el archivo htacces en /var/www/html/stats
-cp ../htaccess/htaccess /var/html/stats/.htaccess
+cp ../htaccess/.htaccess /var/www/html/stats/.htaccess
 
 #Reiniciamos el servicio de Apache
 
