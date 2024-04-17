@@ -60,8 +60,7 @@ chown www-data:www-data /var/www/html -R
 
 #Ejecutamos Goacces en segundo plano
 
-goaccess /var/log/apache2/access.log -o /var/www/html/stats/index.html --log-format=COMBINED --real-time-html --daemonize
-
+goaccess /var/log/apache2/access.log -o /var/www/html/stats/index.html --log-format=COMBINED --real-time-html --ws-url=ws://localhost:7890/stats --daemonize
 #Control de acceso a un directorio con .htaccess
 #-----------------------------------------------------------
 #Creamos un directorio para guardar el archivo de claves
